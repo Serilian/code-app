@@ -1,0 +1,7 @@
+{
+  "name": "click-counter",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
