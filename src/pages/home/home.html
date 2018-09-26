@@ -1,14 +1,34 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+      Assignment
     </ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+<ion-content text-center padding>
+  <h1 padding>Enter the right code</h1>
+  <p *ngIf="isGameWon()">You won!</p>
+  <p *ngIf="!isGameWon()">Tap twice, press 4 times</p>
+
+  <ion-list>
+    <ion-item>
+      <p>Tapped: {{tapNr}}</p>
+    </ion-item>
+    <ion-item>
+      <p>Pressed: {{pressNr}}</p>
+    </ion-item>
+  </ion-list>
+  <ion-grid>
+    <app-reset-controls (didReset)="onDidReset($event)"> </app-reset-controls>
+    <ion-row>
+      <ion-col>
+        <button small color="secondary" ion-button block (tap)="onTap()">Tap here</button>
+      </ion-col>
+      <ion-col>
+        <button small color="secondary" ion-button block (press)="onPress()">Press here</button>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
 </ion-content>
